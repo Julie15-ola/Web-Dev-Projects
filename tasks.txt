@@ -1,0 +1,162 @@
+<?php
+include("database.php");
+
+// Insert
+if (isset($_POST['add'])) {
+    $task = trim($_POST['task']);
+    if (!empty($task)) {
+        $stmt = $conn->prepare("INSERT INTO tasks (task) VALUES (?)");
+        $stmt->bind_param("s", $task);
+        $stmt->execute();
+        $stmt->close();
+    }
+}
+
+// Delete single
+if (isset($_POST['deleteTask'])) {
+    $id = $_POST['id'];
+    $conn->query("DELETE FROM tasks WHERE id=$id");
+}
+
+// Update
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+    $task = trim($_POST['task']);
+    if (!empty($task)) {
+        $stmt = $conn->prepare("UPDATE tasks SET task=? WHERE id=?");
+        $stmt->bind_param("si", $task, $id);
+        $stmt->execute();
+        $stmt->close();
+    }
+}
+
+// Delete all
+if (isset($_POST['deleteAll'])) {
+    $conn->query("DELETE FROM tasks");
+}
+
+// Get tasks
+$tasks = $conn->query("SELECT * FROM tasks");
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TO-DO LIST</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 60%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            margin-left: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color:rgb(230, 31, 130);
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #c02677;
+        }
+
+        .task-item {
+            background-color:rgb(97, 197, 236);
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task-text {
+            flex: 1;
+            text-align: left;
+            margin-right: 10px;
+        }
+
+        .task-actions form {
+            display: inline;
+        }
+
+        .task-actions .btn {
+            margin: 0 2px;
+            font-size: 14px;
+            padding: 6px 10px;
+        }
+
+        .delete-all {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📝 To-Do List</h1>
+
+    <!-- Insert Form -->
+    <form method="POST">
+        <input type="text" name="task" placeholder="Enter task here" required>
+        <input class="btn" type="submit" name="add" value="➕ Add Task">
+    </form>
+
+    <!-- Task List -->
+    <?php while ($row = $tasks->fetch_assoc()): ?>
+        <div class="task-item">
+            <div class="task-text"><?= htmlspecialchars($row['task']) ?></div>
+            <div class="task-actions">
+                <!-- Edit Form -->
+                <form method="POST" style="display:inline-block;">
+                    <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                    <input type="text" name="task" value="<?= htmlspecialchars($row['task']) ?>" required>
+                    <input class="btn" type="submit" name="update" value="✏️ Edit">
+                </form>
+
+                <!-- Delete Form -->
+                <form method="POST" style="display:inline-block;">
+                    <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                    <input class="btn" type="submit" name="deleteTask" value="🗑️ Delete">
+                </form>
+            </div>
+        </div>
+    <?php endwhile; ?>
+
+    <!-- Delete All Form -->
+    <form method="POST" class="delete-all">
+        <input class="btn" type="submit" name="deleteAll" value="🧹 Delete All Tasks">
+    </form>
+</div>
+</body>
+</html>
