@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Navigation Menu */
+nav {
+    background-color: #333;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+nav ul li {
+    display: inline-block; 
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: #FFB6C1;
+}
+
+/* Main Content */
+section {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Profile Picture */
+.profile-pic {
+    width: 200px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+/* Social Media Links */
+a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e74c3c;
+    text-decoration: underline;
+}
+
+/* Centering Unordered & Ordered Lists */
+ul, ol {
+    display: table;
+    margin: 0 auto; 
+    text-align: left; 
+}
+
+/* Centering Tables */
+table {
+    margin: auto; 
+    border-collapse: collapse;
+    width: 80%; 
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center; 
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #333;
+    color: lightpink;
+}

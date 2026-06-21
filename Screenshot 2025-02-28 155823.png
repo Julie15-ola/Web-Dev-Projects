@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julie Joyce Ola Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.onload = function() {
+            alert("Welcome to Julie Joyce Ola's Portfolio!");
+        };
+    </script>
+</head>
+<body>
+
+    <div align="center">
+        <img class="profile-pic" src="OLA, JULIE JOYCE S..jpeg" alt="Profile Picture">
+        <h2>JULIE JOYCE SEBASTIAN OLA</h2>
+        <h3>Student Number: 23-140142</h3>
+    </div>
+
+    <nav align="center">
+	<ul>
+        <li><a href="index.html">Home</a></li>   
+	    <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+	</div>
+    </nav>
+    <hr>
+
+    <h2>About Me</h2>
+    <ul>
+        <li><b>Age:</b> 20 years old</li>
+        <li><b>Sex:</b> Female</li>
+        <li><b>Date of Birth:</b> April 15, 2004</li>
+        <li><b>Place of Birth:</b> Bulacan City</li>
+        <li><b>Citizenship:</b> Filipino</li>
+        <li><b>Religion:</b> Roman Catholic</li>
+    </ul>
+    <hr/>
+
+    <h2>Education</h2>
+    <table border="2">
+        <tr><th>Level</th><th>School</th><th>Batch</th></tr>
+        <tr><td>College</td><td>Mariano Marcos State University (BSInfoTech)</td><td>2027</td></tr>
+        <tr><td>Upper Secondary Education</td><td>Currimao National High School (STEM)</td><td>2023</td></tr>
+        <tr><td>Secondary Education</td><td>Currimao National High School</td><td>2021</td></tr>
+        <tr><td>Primary Education</td><td>Bimmanga Elementary School</td><td>2017</td></tr>
+    </table>
+    <hr/>
+
+    <section>
+        <h2>Special Skills</h2>
+        <ul>
+            <li>Great Interpersonal skills</li>
+            <li>Problem Solving</li>
+            <li>Volunteering in the community</li>
+            <li>Time management</li>
+            <li>Multitasker</li>
+            <li>Organized</li>
+            <li>Technical Analysis</li>
+        </ul>
+    </section>
+    <hr/>
+
+    <section>
+        <h2>Projects</h2>
+        <ol>
+            <li>Attendance Management System</li>
+            <li>Parking Reservation System</li>
+            <li>Streaming Website</li>
+        </ol>
+    </section>
+    <hr/>
+
+    <section>
+        <h2>Experience</h2>
+
+        <div class="experience">
+            <p class="position">Sangguniang Kabataan (SK) Kagawad</p>
+            <p>Brgy. Paguludan-Salindeg, Currimao, Ilocos Norte</p>
+            <p class="date">December 2023 – November 2025</p>
+            <ul>
+                <li>Monthly clean-up drive and maintaining the cleanliness of our barangay.</li>
+            </ul>
+        </div>
+	<br>
+        <div class="experience">
+            <p class="position">Web Developer/Internship</p>
+            <p>Mariano Marcos State University, Information Technology Center (ITC)</p>
+            <p class="date">May 2025 – June 2026</p>
+            <ul>
+                <li>Designing, creating, and maintaining websites using HTML, CSS, and JavaScript.</li>
+            </ul>
+        </div>
+	<br/>
+    </section>
+    <hr/>
+
+    <section>
+        <h2>My Vision</h2>
+        <blockquote>"Empowering communities through technology and sustainability."</blockquote>
+        <blockquote>"Trust the Process."</blockquote>
+    </section>
+    <hr/>
+
+	<section>
+	<h2>HTML & CSS Tutorial</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/HGTJBPNC-Gw?si=Be6x3e6zmE00ZqP7" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+	</section>
+
+    <footer>
+        <p>&copy; 2025 Julie Joyce Ola. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
